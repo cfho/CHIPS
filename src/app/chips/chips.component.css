@@ -1,0 +1,38 @@
+table {
+  width: 100%;
+}
+
+/* .mat-card-image  {
+  object-fit: cover;
+  width: 300px;
+} */
+
+/* .test {
+  height: 400px;
+  width: auto;
+} */
+
+/* .container_2 {
+  border-radius: 10px;
+  margin: 5px;
+  padding: 5px;
+}
+
+
+.example-card {
+  max-width: 400px;
+} */
+
+
+/* .example-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.example-container > * {
+  width: 100%;
+} */
+
+mat-card {
+  margin: 5px;
+}

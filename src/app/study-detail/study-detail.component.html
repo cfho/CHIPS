@@ -1,0 +1,27 @@
+<mat-card>
+<mat-grid-tile-header><h2>病例號：{{hisnum}}</h2></mat-grid-tile-header>
+<mat-grid-list cols="12" rowHeight="30px">
+  <mat-grid-tile *ngFor="let tile of tiles; index as i" [colspan]="tile.cols" [rowspan]="tile.rows"
+    [style.background]="tile.color">
+    {{tile.text}}
+  </mat-grid-tile>
+</mat-grid-list>
+
+<div *ngFor="let item of items">
+  <mat-grid-list cols="12" rowHeight="25px">
+    <mat-grid-tile *ngFor="let tile of data; index as i" [colspan]="tile.cols" [rowspan]="tile.rows"
+      [style.background]="tile.color">
+
+      <ng-container *ngIf="readers.includes(item[i]); else elseTemplate">
+        <a [routerLink]="['/study-edit', item[item.length-1]]">
+          {{item[i]}}
+        </a>
+      </ng-container>
+      <ng-template #elseTemplate>
+        {{item[i]}}
+      </ng-template>
+
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
+</mat-card>

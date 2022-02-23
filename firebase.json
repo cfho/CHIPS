@@ -1,0 +1,17 @@
+{
+  "hosting": {
+      "site":"dementia-chips",
+    "public": "dist/NG-V9",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}

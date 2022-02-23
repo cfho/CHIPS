@@ -1,0 +1,191 @@
+{
+    "rules": {
+      
+      "活動人數統計": {
+      ".read": true,
+      ".write": true,
+      "activities": {
+        ".indexOn": "activity_date"
+      }
+        },
+      
+      "108佛學乙": {
+        "data": {
+          ".read": "auth !== null && root.child('108佛學乙/auth_uid').child(auth.email.replace('.', '%2E')).exists()",
+          ".write": "root.child('108佛學乙/admin').child(auth.email.replace('.', '%2E')).exists()"
+        },
+        "fields_name": {
+          ".read": "auth !== null && root.child('108佛學乙/auth_uid').child(auth.email.replace('.', '%2E')).exists()",
+          ".write": "root.child('108佛學乙/admin').child(auth.email.replace('.', '%2E')).exists()"
+        },
+        "admin": {
+          ".read": true
+        },
+        "關懷員": {
+          ".read": "auth !== null && root.child('108佛學乙/auth_uid').child(auth.email.replace('.', '%2E')).exists()"
+        },
+        "學員名單": {
+          ".indexOn": ["carer_email"],
+          ".read": "auth !== null && root.child('108佛學乙/auth_uid').child(auth.email.replace('.', '%2E')).exists()",
+          ".write": "root.child('108佛學乙/admin').child(auth.email.replace('.', '%2E')).exists()",
+          "$user_id": {
+            "memo": {
+              ".write": "auth !== null && root.child('108佛學乙/auth_uid').child(auth.email.replace('.', '%2E')).exists()"
+            },
+            "check4": {
+              ".write": "auth !== null && root.child('108佛學乙/auth_uid').child(auth.email.replace('.', '%2E')).exists()"
+            },
+            "check5": {
+              ".write": "auth !== null && root.child('108佛學乙/auth_uid').child(auth.email.replace('.', '%2E')).exists()"
+            },
+            "check1": {
+              ".write": "auth !== null && root.child('108佛學乙/auth_uid').child(auth.email.replace('.', '%2E')).exists()"
+            },
+            "check2": {
+              ".write": "auth !== null && root.child('108佛學乙/auth_uid').child(auth.email.replace('.', '%2E')).exists()"
+            },
+            "check3": {
+              ".write": "auth !== null && root.child('108佛學乙/auth_uid').child(auth.email.replace('.', '%2E')).exists()"
+            }
+          }
+        }
+      },
+      "108福田班": {
+        "data": {
+          ".read": "auth !== null && root.child('108福田班/auth_uid').child(auth.email.replace('.', '%2E')).exists()",
+          ".write": "root.child('108福田班/admin').child(auth.email.replace('.', '%2E')).exists()"
+        },
+        "fields_name": {
+          ".read": "auth !== null && root.child('108福田班/auth_uid').child(auth.email.replace('.', '%2E')).exists()",
+          ".write": "root.child('108福田班/admin').child(auth.email.replace('.', '%2E')).exists()"
+        },
+        "admin": {
+          ".read": true
+        },
+        "關懷員": {
+          ".read": "auth !== null && root.child('108福田班/auth_uid').child(auth.email.replace('.', '%2E')).exists()"
+        },
+        "學員名單": {
+          
+          ".indexOn": ["carer_email"],
+          ".read": "auth !== null && root.child('108福田班/auth_uid').child(auth.email.replace('.', '%2E')).exists()",
+          ".write": "root.child('108福田班/admin').child(auth.email.replace('.', '%2E')).exists()",
+          "$user_id": {
+            "memo": {
+              ".write": "auth !== null && root.child('108福田班/auth_uid').child(auth.email.replace('.', '%2E')).exists()"
+            },
+            "check4": {
+              ".write": "auth !== null && root.child('108福田班/auth_uid').child(auth.email.replace('.', '%2E')).exists()"
+            },
+            "check5": {
+              ".write": "auth !== null && root.child('108福田班/auth_uid').child(auth.email.replace('.', '%2E')).exists()"
+            },
+            "check1": {
+              ".write": "auth !== null && root.child('108福田班/auth_uid').child(auth.email.replace('.', '%2E')).exists()"
+            },
+            "check2": {
+              ".write": "auth !== null && root.child('108福田班/auth_uid').child(auth.email.replace('.', '%2E')).exists()"
+            },
+            "check3": {
+              ".write": "auth !== null && root.child('108福田班/auth_uid').child(auth.email.replace('.', '%2E')).exists()"
+            },
+            "attend": {
+              ".write": "auth !== null && root.child('108福田班/auth_uid').child(auth.email.replace('.', '%2E')).exists()"
+            },
+            "contact": {
+              ".write": "auth !== null && root.child('108福田班/auth_uid').child(auth.email.replace('.', '%2E')).exists()"
+            }
+          }
+        }
+      },
+      "107佛學甲": {
+        "data": {
+          ".read": "auth !== null && root.child('107佛學甲/auth_uid').child(auth.email.replace('.', '%2E')).exists()",
+          ".write": "root.child('107佛學甲/admin').child(auth.email.replace('.', '%2E')).exists()"
+        },
+        "fields_name": {
+          ".read": "auth !== null && root.child('107佛學甲/auth_uid').child(auth.email.replace('.', '%2E')).exists()",
+          ".write": "root.child('107佛學甲/admin').child(auth.email.replace('.', '%2E')).exists()"
+        },
+        "admin": {
+          ".read": true
+        },
+        "關懷員": {
+          ".read": "auth !== null && root.child('107佛學甲/auth_uid').child(auth.email.replace('.', '%2E')).exists()"
+        },
+        "學員名單": {
+          
+          ".indexOn": ["carer_email"],
+          ".read": "auth !== null && root.child('107佛學甲/auth_uid').child(auth.email.replace('.', '%2E')).exists()",
+          ".write": "root.child('107佛學甲/admin').child(auth.email.replace('.', '%2E')).exists()",
+          "$user_id": {
+            "memo": {
+              ".write": "auth !== null && root.child('107佛學甲/auth_uid').child(auth.email.replace('.', '%2E')).exists()"
+            },
+            "check4": {
+              ".write": "auth !== null && root.child('107佛學甲/auth_uid').child(auth.email.replace('.', '%2E')).exists()"
+            },
+            "check5": {
+              ".write": "auth !== null && root.child('107佛學甲/auth_uid').child(auth.email.replace('.', '%2E')).exists()"
+            },
+            "check1": {
+              ".write": "auth !== null && root.child('107佛學甲/auth_uid').child(auth.email.replace('.', '%2E')).exists()"
+            },
+            "check2": {
+              ".write": "auth !== null && root.child('107佛學甲/auth_uid').child(auth.email.replace('.', '%2E')).exists()"
+            },
+            "check3": {
+              ".write": "auth !== null && root.child('107佛學甲/auth_uid').child(auth.email.replace('.', '%2E')).exists()"
+            },
+            "attend": {
+              ".write": "auth !== null && root.child('107佛學甲/auth_uid').child(auth.email.replace('.', '%2E')).exists()"
+            },
+            "contact": {
+              ".write": "auth !== null && root.child('107佛學甲/auth_uid').child(auth.email.replace('.', '%2E')).exists()"
+            }
+          }
+        }
+      },
+      "安和活動": {
+        "fields_name": {
+          ".read": "auth !== null && root.child('安和活動/auth_uid').child(auth.email.replace('.', '%2E')).exists()",
+          ".write": "root.child('安和活動/admin').child(auth.email.replace('.', '%2E')).exists()"
+        },
+        "data": {
+          ".read": "auth !== null && root.child('安和活動/auth_uid').child(auth.email.replace('.', '%2E')).exists()",
+          ".write": "root.child('安和活動/admin').child(auth.email.replace('.', '%2E')).exists()"
+        },
+        "admin": {
+          ".read": true
+        },
+        "關懷員": {
+          ".read": "auth !== null && root.child('安和活動/auth_uid').child(auth.email.replace('.', '%2E')).exists()"
+        },
+        "學員名單": {
+          ".indexOn": ["carer_email"],
+          ".read": "auth !== null && root.child('安和活動/auth_uid').child(auth.email.replace('.', '%2E')).exists()",
+          ".write": "root.child('安和活動/admin').child(auth.email.replace('.', '%2E')).exists()",
+          "$user_id": {
+            "memo": {
+              ".write": "auth !== null && root.child('安和活動/auth_uid').child(auth.email.replace('.', '%2E')).exists()"
+            },
+            "check4": {
+              ".write": "auth !== null && root.child('安和活動/auth_uid').child(auth.email.replace('.', '%2E')).exists()"
+            },
+            "check5": {
+              ".write": "auth !== null && root.child('安和活動/auth_uid').child(auth.email.replace('.', '%2E')).exists()"
+            },
+            "check1": {
+              ".write": "auth !== null && root.child('安和活動/auth_uid').child(auth.email.replace('.', '%2E')).exists()"
+            },
+            "check2": {
+              ".write": "auth !== null && root.child('安和活動/auth_uid').child(auth.email.replace('.', '%2E')).exists()"
+            },
+            "check3": {
+              ".write": "auth !== null && root.child('安和活動/auth_uid').child(auth.email.replace('.', '%2E')).exists()"
+            }
+          }
+        }
+      }
+    }
+  }

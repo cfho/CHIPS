@@ -1,0 +1,13 @@
+.test {
+    background: lightblue;
+  }
+
+  a {
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    opacity: 0.8;
+  }
