@@ -1,14 +1,14 @@
 export const environment = {
   production: true,
   firebase : {
-  apiKey: "AIzaSyAdZYElWsfO2YO4MJt7OzePbXZsPSo3pig",
-  authDomain: "radiology-8a1e7.firebaseapp.com",
-  databaseURL: "https://radiology-8a1e7.firebaseio.com",
-  projectId: "radiology-8a1e7",
-  storageBucket: "",
-  messagingSenderId: "968552037684",
-  appId: "1:968552037684:web:d2ef9ab6abb2def8a7b961",
-  measurementId: "G-9B218Y17GW"
+    apiKey: "AIzaSyDZWsJr5Wl5SWU9cJdqIBpT7FuKIA8rOFM",
+    authDomain: "dementia-e0811.firebaseapp.com",
+    databaseURL: "https://dementia-e0811.firebaseio.com",
+    projectId: "dementia-e0811",
+    storageBucket: "dementia-e0811.appspot.com",
+    messagingSenderId: "626211362987",
+    appId: "1:626211362987:web:d5956151f1d2934c0a7fee",
+    measurementId: "G-XW3SXB569B"
   }
 };
 
