@@ -1,19 +1,27 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { Component, OnInit, Inject } from "@angular/core";
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from "@angular/forms";
+import {
+  MatDialog,
+  MatDialogRef,
+  MAT_DIALOG_DATA,
+} from "@angular/material/dialog";
 
-import { FirebaseService } from '../firebase.service';
-import { ActivatedRoute, Router } from '@angular/router';
-import { throwIfEmpty } from 'rxjs/operators';
+import { FirebaseService } from "../firebase.service";
+import { ActivatedRoute, Router } from "@angular/router";
+import { throwIfEmpty } from "rxjs/operators";
 // import { RouterModule, Routes } from '@angular/router';
 
-import { Output, EventEmitter } from '@angular/core'
-
+import { Output, EventEmitter } from "@angular/core";
 
 @Component({
-  selector: 'app-chips',
-  templateUrl: './chips.component.html',
-  styleUrls: ['./chips.component.css'],
+  selector: "app-chips",
+  templateUrl: "./chips.component.html",
+  styleUrls: ["./chips.component.css"],
 })
 export class ChipsComponent implements OnInit {
   // items;
@@ -28,13 +36,14 @@ export class ChipsComponent implements OnInit {
     private formBuilder: FormBuilder,
     private afService: FirebaseService,
     private route: ActivatedRoute,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private router: Router
   ) {
     this.checkoutForm = this.formBuilder.group({
-      reader: '',
-      study_date: '',
-      hisnum: '',
-      accessnum: '',
+      reader: "",
+      study_date: "",
+      hisnum: "",
+      accessnum: "",
       A_RT_ANT: 0,
       A_LT_ANT: 0,
       A_RT_POST: 0,
@@ -62,42 +71,48 @@ export class ChipsComponent implements OnInit {
 
   ngOnInit() {
     // console.log(this.totalprice);
-    this.route.paramMap.subscribe(params => {
+    this.route.paramMap.subscribe((params) => {
       this.reader = params.get("Id");
       if (this.reader) {
         this.getStudyByReader(this.reader);
         console.log(this.reader);
       } else {
-        console.log('null')
+        console.log("null");
       }
       // this.getStudy(this.hisnum)
     });
-    this.interpreter$ = this.afService.getInterpreter()
+    this.interpreter$ = this.afService.getInterpreter();
   }
 
-  openDialog() {
+  openDialogDelete() {
     const dialogRef = this.dialog.open(ChipsDialog, {
-      data: {reader: this.reader}
+      data: { reader: this.reader },
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
+    dialogRef.afterClosed().subscribe((result) => {
+      this.delete();
+      // console.log(`Dialog result: ${result}`);
     });
   }
-  
-  openDialogSave() {
-    const dialogRef = this.dialog.open(ChipsDialogSave, {
-      data: {reader: this.reader}
+
+  openDialogSave(action: string) {
+    const dialogRef = this.dialog.open(ChipsDialog, {
+      data: { action: action },
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log(result);
+      if (result == "save") {
+        this.onSubmit();
+      } else if (result == "delete") {
+        this.delete();
+      } 
     });
   }
 
   getStudyByReader(reader) {
-    this.afService.getStudyByReader(reader)
-      .subscribe(value => {
+    this.afService.getStudyByReader(reader).subscribe((value) => {
+      if (value) {
         this.data = value;
         this.checkoutForm.setValue({
           reader: this.data.reader,
@@ -126,99 +141,79 @@ export class ChipsComponent implements OnInit {
           D_LT_POST: this.data.D_LT_POST,
           MTA_RT: this.data.MTA_RT,
           MTA_LT: this.data.MTA_LT,
-        })
-      })
-
+        });
+      }
+    });
   }
 
-  onSubmit(customerData) {
+  onSubmit() {
+    const customerData = this.checkoutForm.value;
     // Process checkout data here
-    customerData['A_subtotal'] = (
-      Number(customerData.A_LT_ANT) +
-      Number(customerData.A_RT_ANT) +
-      Number(customerData.A_LT_POST) +
-      Number(customerData.A_RT_POST)
-    ) * 1
-    customerData['B_subtotal'] = (
-      Number(customerData.B_LT_ANT) +
-      Number(customerData.B_RT_ANT) +
-      Number(customerData.B_LT_POST) +
-      Number(customerData.B_RT_POST) +
-      Number(customerData.B_LT_Cingulate) +
-      Number(customerData.B_RT_Cingulate)
-    ) * 2
-    customerData['C_subtotal'] = (
-      Number(customerData.C_LT_ANT) +
-      Number(customerData.C_RT_ANT) +
-      Number(customerData.C_LT_POST) +
-      Number(customerData.C_RT_POST) +
-      Number(customerData.C_LT_Cingulate) +
-      Number(customerData.C_RT_Cingulate)
-    ) * 3
-    customerData['D_subtotal'] = (
-      Number(customerData.D_LT_ANT) +
-      Number(customerData.D_RT_ANT) +
-      Number(customerData.D_LT_POST) +
-      Number(customerData.D_RT_POST)
-    ) * 4
-    customerData['CHIPS'] =
-      customerData['A_subtotal'] +
-      customerData['B_subtotal'] +
-      customerData['C_subtotal'] +
-      customerData['D_subtotal']
-    customerData['MTA'] =
-      Number(customerData['MTA_RT']) +
-      Number(customerData['MTA_LT'])
+    customerData["A_subtotal"] =
+      (Number(customerData.A_LT_ANT) +
+        Number(customerData.A_RT_ANT) +
+        Number(customerData.A_LT_POST) +
+        Number(customerData.A_RT_POST)) *
+      1;
+    customerData["B_subtotal"] =
+      (Number(customerData.B_LT_ANT) +
+        Number(customerData.B_RT_ANT) +
+        Number(customerData.B_LT_POST) +
+        Number(customerData.B_RT_POST) +
+        Number(customerData.B_LT_Cingulate) +
+        Number(customerData.B_RT_Cingulate)) *
+      2;
+    customerData["C_subtotal"] =
+      (Number(customerData.C_LT_ANT) +
+        Number(customerData.C_RT_ANT) +
+        Number(customerData.C_LT_POST) +
+        Number(customerData.C_RT_POST) +
+        Number(customerData.C_LT_Cingulate) +
+        Number(customerData.C_RT_Cingulate)) *
+      3;
+    customerData["D_subtotal"] =
+      (Number(customerData.D_LT_ANT) +
+        Number(customerData.D_RT_ANT) +
+        Number(customerData.D_LT_POST) +
+        Number(customerData.D_RT_POST)) *
+      4;
+    customerData["CHIPS"] =
+      customerData["A_subtotal"] +
+      customerData["B_subtotal"] +
+      customerData["C_subtotal"] +
+      customerData["D_subtotal"];
+    customerData["MTA"] =
+      Number(customerData["MTA_RT"]) + Number(customerData["MTA_LT"]);
 
     let unixTimestamp = Date.parse(customerData.study_date); // convert datepicker data into unix timestamp and save on database
     let date = new Date(customerData.study_date);
-    customerData['date'] = date.toISOString();
-    customerData['study_date'] = unixTimestamp;
+    customerData["date"] = date.toISOString();
+    customerData["study_date"] = unixTimestamp;
     this.afService.add(customerData);
     // this.checkoutForm.reset();
   }
 
-}
-
-@Component({
-  selector: 'chips-dialog',
-  templateUrl: 'chips-dialog.html',
-})
-export class ChipsDialog {
-  
-
-  constructor(
-    @Inject(MAT_DIALOG_DATA) public data,
-    private router: Router,
-    private afService: FirebaseService
-  ) {}
-
-  delete(reader) {
+  delete() {
+    const reader = this.reader;
     console.log(reader);
-    this.afService.deleteByReader(reader)
-    this.router.navigate(['patient-list'])
-    console.log('delete hcf')
+    this.router.navigate(["patient-list"]);
+    this.afService.deleteByReader(reader);
   }
 }
 
 @Component({
-  selector: 'chips-dialog-save',
-  templateUrl: 'chips-dialog-save.html',
+  selector: "chips-dialog",
+  templateUrl: "chips-dialog.html",
 })
-export class ChipsDialogSave {
-  @Output() save =new EventEmitter();
-  
+export class ChipsDialog {
+  @Output() save = new EventEmitter();
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data,
-    private router: Router,
-    private afService: FirebaseService
+    public dialogRef: MatDialogRef<ChipsDialog>
   ) {}
 
-  delete(reader) {
-    console.log(reader);
-    this.afService.deleteByReader(reader)
-    this.router.navigate(['patient-list'])
-    console.log('delete hcf')
+  onNoClick(): void {
+    this.dialogRef.close("cancel");
   }
 }

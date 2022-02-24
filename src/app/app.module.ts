@@ -7,9 +7,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppComponent } from './app.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
-import { ChipsComponent } from './chips/chips.component';
-import { ChipsDialog } from './chips/chips.component';
-import { ChipsDialogSave } from './chips/chips.component';
+import { ChipsComponent, ChipsDialog } from './chips/chips.component';
 
 // angular material
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -84,10 +82,9 @@ import { DialogContentExampleDialog } from './dialog/dialog.component';
     StudyEditComponent,
     DialogComponent,
     DialogContentExampleDialog,
-    ChipsDialog,
-    ChipsDialogSave
+    ChipsDialog
   ],
-  entryComponents: [ DialogComponent, DialogContentExampleDialog, ChipsDialog, ChipsDialogSave ],
+  entryComponents: [ DialogComponent, DialogContentExampleDialog, ChipsDialog ],
   bootstrap: [ AppComponent ],
   providers: []
 })

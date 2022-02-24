@@ -33,7 +33,7 @@ export class FirebaseService {
 
     this.dbr.object('studies/' + data.hisnum + '/updateTime')
     .set(addTime)
-    .then(() => console.log("Add new record OK"))
+    .then(() => console.log("Renew updateTime!"))
       .catch(err => console.log(err));
 
   }
