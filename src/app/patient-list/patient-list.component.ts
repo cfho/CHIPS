@@ -1,8 +1,9 @@
-import { Component, OnInit, ViewChild } from "@angular/core";
+import { Component, OnDestroy, OnInit, ViewChild } from "@angular/core";
 import { FirebaseService } from "../firebase.service";
 
 import { MatPaginator, MatSort, MatTableDataSource } from "@angular/material";
-import { Observable, ReplaySubject } from "rxjs";
+import { Observable, ReplaySubject, Subject } from "rxjs";
+import { takeUntil } from "rxjs/operators";
 
 export interface UserData {
   id?: string;
@@ -15,7 +16,8 @@ export interface UserData {
   templateUrl: "./patient-list.component.html",
   styleUrls: ["./patient-list.component.css"],
 })
-export class PatientListComponent implements OnInit {
+export class PatientListComponent implements OnInit, OnDestroy {
+  private destroy$ = new Subject();
   subject$: ReplaySubject<UserData[]> = new ReplaySubject<UserData[]>(1);
   data$: Observable<UserData[]> = this.subject$.asObservable();
 
@@ -27,20 +29,20 @@ export class PatientListComponent implements OnInit {
   constructor(private afService: FirebaseService) {}
 
   ngOnInit() {
-    this.afService.getAll().subscribe((data) => {
-      this.subject$.next(data);
-      // this.dataSource = data;
-      // console.log(data);
-    });
+    this.afService
+      .getAll()
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((data) => {
+        this.subject$.next(data);
+        // this.dataSource = data;
+        // console.log(data);
+      });
     this.dataSource = new MatTableDataSource();
 
-    this.data$
-      .subscribe((customers) => {
-        console.log(customers);
-        this.dataSource.data = customers;
-      });
-
-
+    this.data$.pipe(takeUntil(this.destroy$)).subscribe((customers) => {
+      console.log(customers);
+      this.dataSource.data = customers;
+    });
   }
 
   ngAfterViewInit() {
@@ -57,13 +59,8 @@ export class PatientListComponent implements OnInit {
     }
   }
 
-  // getAll() {
-  //   this.afService.getAll()
-  //     .subscribe(data => {
-  //     this.subject$.next(data);
-
-  //       this.dataSource = data;
-  //       console.log(data)
-  //     })
-  // }
+  ngOnDestroy() {
+    this.destroy$.next(true);
+    console.log("💥Destroyed");
+}
 }
