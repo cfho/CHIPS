@@ -73,6 +73,7 @@ export class ChipsComponent implements OnInit {
     // console.log(this.totalprice);
     this.route.paramMap.subscribe((params) => {
       this.reader = params.get("Id");
+      console.log(this.reader);
       if (this.reader) {
         this.getStudyByReader(this.reader);
         console.log(this.reader);
@@ -95,7 +96,7 @@ export class ChipsComponent implements OnInit {
     });
   }
 
-  openDialogSave(action: string) {
+  openDialog(action: string) {
     const dialogRef = this.dialog.open(ChipsDialog, {
       data: { action: action },
     });
@@ -194,9 +195,17 @@ export class ChipsComponent implements OnInit {
   }
 
   delete() {
-    const reader = this.reader;
+    // console.log(this.reader)
+    const oldString = this.reader;
+    const arr = oldString.split('/');
+    arr.pop();
+    const pushString = this.checkoutForm.value.accessnum + '_' + this.checkoutForm.value.reader;
+    arr.push(pushString);
+    const reader = arr.join('/');
+    const id = String(reader).substring(0, reader.indexOf('/'))
+    console.log(id);
+    this.router.navigate(["study-detail/" + id]);
     console.log(reader);
-    this.router.navigate(["patient-list"]);
     this.afService.deleteByReader(reader);
   }
 }

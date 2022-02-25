@@ -4,16 +4,16 @@
 
 export const environment = {
   production: false,
-  firebase : {
-  apiKey: "AIzaSyDZWsJr5Wl5SWU9cJdqIBpT7FuKIA8rOFM",
-  authDomain: "dementia-e0811.firebaseapp.com",
-  databaseURL: "https://dementia-e0811.firebaseio.com",
-  projectId: "dementia-e0811",
-  storageBucket: "dementia-e0811.appspot.com",
-  messagingSenderId: "626211362987",
-  appId: "1:626211362987:web:d5956151f1d2934c0a7fee",
-  measurementId: "G-XW3SXB569B"
-  }
+  firebase: {
+    apiKey: "AIzaSyAdZYElWsfO2YO4MJt7OzePbXZsPSo3pig",
+    authDomain: "radiology-8a1e7.firebaseapp.com",
+    databaseURL: "https://radiology-8a1e7.firebaseio.com",
+    projectId: "radiology-8a1e7",
+    storageBucket: "radiology-8a1e7.appspot.com",
+    messagingSenderId: "968552037684",
+    appId: "1:968552037684:web:47ccc9bbef3598eaa7b961",
+    measurementId: "G-P5KT61D9SS",
+  },
 };
 
 /*
@@ -24,7 +24,6 @@ export const environment = {
  * on performance if an error is thrown.
  */
 // import 'zone.js/dist/zone-error';  // Included with Angular CLI.
-
 
 /*
 Copyright Google LLC. All Rights Reserved.

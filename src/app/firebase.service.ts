@@ -26,12 +26,14 @@ export class FirebaseService {
   add(data) {
     const addTime = Date.now(); //
     // data.updateTime = addTime;
-    this.dbr.object('studies/' + data.hisnum + '/MRI/' + data.accessnum + '_' + data.reader)
+    this.dbr.object('DEMENTIA/studies/' + data.hisnum + '/MRI/' + data.accessnum + '_' + data.reader)
+    // this.dbr.object('studies/' + data.hisnum + '/MRI/' + data.accessnum + '_' + data.reader)
       .set(data)
       .then(() => console.log("Add new record OK"))
       .catch(err => console.log(err));
 
-    this.dbr.object('studies/' + data.hisnum + '/updateTime')
+    this.dbr.object('DEMENTIA/studies/' + data.hisnum + '/updateTime')
+    // this.dbr.object('studies/' + data.hisnum + '/updateTime')
     .set(addTime)
     .then(() => console.log("Renew updateTime!"))
       .catch(err => console.log(err));
@@ -39,26 +41,30 @@ export class FirebaseService {
   }
 
   deleteByReader(reader){
-    return this.dbr.object('studies/' + reader)
+    return this.dbr.object('DEMENTIA/studies/' + reader)
+    // return this.dbr.object('studies/' + reader)
       .remove()
       .then(() => console.log("delete OK"))
       .catch(err => console.log(err));
   }
 
   update(id, data) {
-    return this.dbr.object('studies/' + id)
+    return this.dbr.object('DEMENTIA/studies/' + id)
+    // return this.dbr.object('studies/' + id)
       .update(data)
       .then(() => console.log("update OK"))
       .catch(err => console.log(err));
   }
 
   getInterpreter() {
-    return this.dbr.object('interpreter')
+    return this.dbr.object('DEMENTIA/interpreter')
+    // return this.dbr.object('interpreter')
       .valueChanges();
   }
 
   getAll() {
-    return this.dbr.list('studies')
+    return this.dbr.list('DEMENTIA/studies')
+    // return this.dbr.list('studies')
     .snapshotChanges()
       .pipe(map(docArray => {
         return docArray.map(doc => {
@@ -72,12 +78,14 @@ export class FirebaseService {
   }
 
   getStudyByReader(reader) {
-    return this.dbr.object('studies/' + reader)
+    return this.dbr.object('DEMENTIA/studies/' + reader)
+    // return this.dbr.object('studies/' + reader)
     .valueChanges();
   }
 
   getMRIbyHx(HxNum) {
-    return this.dbr.list('studies/' + HxNum + '/MRI')
+    return this.dbr.list('DEMENTIA/studies/' + HxNum + '/MRI')
+    // return this.dbr.list('studies/' + HxNum + '/MRI')
     .snapshotChanges()
       .pipe(map(docArray => {
         return docArray.map(doc => {
