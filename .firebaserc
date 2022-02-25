@@ -1,0 +1,12 @@
+{
+  "projects": {},
+  "targets": {
+    "radiology-8a1e7": {
+      "hosting": {
+        "chips": [
+          "NG-V9"
+        ]
+      }
+    }
+  }
+}
