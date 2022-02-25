@@ -66,7 +66,7 @@ import { DialogContentExampleDialog } from './dialog/dialog.component';
     MatPaginatorModule,
     
     RouterModule.forRoot([
-      { path: '', component: ChipsComponent },
+      { path: '', component: PatientListComponent },
       { path: 'patient-list', component: PatientListComponent },
       { path: 'study-detail/:Id', component: StudyDetailComponent },
       { path: 'study-edit/:Id', component: ChipsComponent },
