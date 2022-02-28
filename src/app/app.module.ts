@@ -24,8 +24,9 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
 
-import { FirebaseService } from './firebase.service';
+// import { FirebaseService } from './firebase.service';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 
@@ -64,6 +65,7 @@ import { DialogContentExampleDialog } from './dialog/dialog.component';
     MatToolbarModule,
     MatDialogModule,
     MatPaginatorModule,
+    MatSortModule,
     
     RouterModule.forRoot([
       { path: '', component: PatientListComponent },

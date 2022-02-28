@@ -41,10 +41,10 @@ export class ChipsComponent implements OnInit, OnDestroy {
     private router: Router
   ) {
     this.checkoutForm = this.formBuilder.group({
-      reader: "",
-      study_date: "",
-      hisnum: "",
-      accessnum: "",
+      reader: ["", Validators.required],
+      study_date: ["", Validators.required],
+      hisnum: ["", Validators.required],
+      accessnum: ["", Validators.required],
       A_RT_ANT: [0, Validators.max(2)],
       A_LT_ANT: [0, Validators.max(2)],
       A_RT_POST: [0, Validators.max(2)],
@@ -186,6 +186,8 @@ export class ChipsComponent implements OnInit, OnDestroy {
     let date = new Date(customerData.study_date);
     customerData["date"] = date.toISOString();
     customerData["study_date"] = unixTimestamp;
+    const hxNumber = this.checkoutForm.value.hisnum;
+    this.router.navigate(["study-detail/" + hxNumber]);
     this.afService.add(customerData);
     // this.checkoutForm.reset();
   }
@@ -216,9 +218,6 @@ export class ChipsComponent implements OnInit, OnDestroy {
         this.afService.deleteByReader(route);
       }
     });
-
-    // const id = String(reader).substring(0, reader.indexOf('/'))
-    // console.log(id);
   }
 
   ngOnDestroy() {

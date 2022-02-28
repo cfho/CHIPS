@@ -1,7 +1,14 @@
-import { Component, OnDestroy, OnInit, ViewChild } from "@angular/core";
+import {
+  AfterViewInit,
+  Component,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+} from "@angular/core";
 import { FirebaseService } from "../firebase.service";
-
-import { MatPaginator, MatSort, MatTableDataSource } from "@angular/material";
+import { MatPaginator } from "@angular/material/paginator";
+import { MatSort } from "@angular/material/sort";
+import { MatTableDataSource } from "@angular/material/table";
 import { Observable, ReplaySubject, Subject } from "rxjs";
 import { takeUntil } from "rxjs/operators";
 
@@ -16,15 +23,15 @@ export interface UserData {
   templateUrl: "./patient-list.component.html",
   styleUrls: ["./patient-list.component.css"],
 })
-export class PatientListComponent implements OnInit, OnDestroy {
+export class PatientListComponent implements OnInit, OnDestroy, AfterViewInit {
   private destroy$ = new Subject();
   subject$: ReplaySubject<UserData[]> = new ReplaySubject<UserData[]>(1);
   data$: Observable<UserData[]> = this.subject$.asObservable();
 
   displayedColumns: string[] = ["Hx", "time", "MRI"];
-  dataSource;
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
+  dataSource: MatTableDataSource<UserData> | null;
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  @ViewChild(MatSort, { static: true }) sort: MatSort;
 
   constructor(private afService: FirebaseService) {}
 
@@ -37,8 +44,8 @@ export class PatientListComponent implements OnInit, OnDestroy {
         // this.dataSource = data;
         // console.log(data);
       });
-    this.dataSource = new MatTableDataSource();
 
+    this.dataSource = new MatTableDataSource();
     this.data$.pipe(takeUntil(this.destroy$)).subscribe((customers) => {
       console.log(customers);
       this.dataSource.data = customers;
@@ -62,5 +69,5 @@ export class PatientListComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.destroy$.next(true);
     console.log("💥Destroyed");
-}
+  }
 }
