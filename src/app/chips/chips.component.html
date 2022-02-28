@@ -66,10 +66,10 @@
           color="primary"
           type="button"
           (click)="openDialog('save')"
+          [disabled]="!checkoutForm.valid"
         >
           儲存資料
         </button>
-        <!-- <button mat-raised-button color="primary">儲存資料</button> -->
       </mat-card-actions>
     </mat-card>
 
@@ -433,8 +433,8 @@
                     4
                 }}
               </mat-card-title>
-              <mat-card-subtitle>Low External Capsule</mat-card-subtitle>
             </mat-card-header>
+            <mat-card-subtitle>Low External Capsule</mat-card-subtitle>
             <img
               mat-card-image
               src="../../assets/low_external_capsule.png"
@@ -519,21 +519,25 @@
       <mat-card>
         <div
           fxLayout="row"
-          fxLayoutAlign="space-around center"
+          fxLayoutAlign="space-around start"
           fxLayout.xs="column"
         >
+        <div fxFlex="50">
           <img
             class="test"
             mat-card-image
             src="../../assets/MTA.png"
             width="auto"
           />
+        </div>
+        <div fxFlex="40">
           <img
             class="test"
             mat-card-image
             src="../../assets/hippocampus.png"
             width="auto"
           />
+        </div>
         </div>
         <mat-card-content fxLayout="row" fxLayoutAlign="space-around center">
           <!-- <mat-grid-list cols="2" rowHeight="2:1"> -->
