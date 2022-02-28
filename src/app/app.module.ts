@@ -67,6 +67,7 @@ import { DialogContentExampleDialog } from './dialog/dialog.component';
     
     RouterModule.forRoot([
       { path: '', component: PatientListComponent },
+      { path: 'new', component: ChipsComponent },
       { path: 'patient-list', component: PatientListComponent },
       { path: 'study-detail/:Id', component: StudyDetailComponent },
       { path: 'study-edit/:Id', component: ChipsComponent },

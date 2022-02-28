@@ -180,6 +180,7 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector
             _angular_material_paginator__WEBPACK_IMPORTED_MODULE_22__["MatPaginatorModule"],
             _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forRoot([
                 { path: '', component: _patient_list_patient_list_component__WEBPACK_IMPORTED_MODULE_29__["PatientListComponent"] },
+                { path: 'new', component: _chips_chips_component__WEBPACK_IMPORTED_MODULE_8__["ChipsComponent"] },
                 { path: 'patient-list', component: _patient_list_patient_list_component__WEBPACK_IMPORTED_MODULE_29__["PatientListComponent"] },
                 { path: 'study-detail/:Id', component: _study_detail_study_detail_component__WEBPACK_IMPORTED_MODULE_28__["StudyDetailComponent"] },
                 { path: 'study-edit/:Id', component: _chips_chips_component__WEBPACK_IMPORTED_MODULE_8__["ChipsComponent"] },
@@ -242,6 +243,7 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector
                     _angular_material_paginator__WEBPACK_IMPORTED_MODULE_22__["MatPaginatorModule"],
                     _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forRoot([
                         { path: '', component: _patient_list_patient_list_component__WEBPACK_IMPORTED_MODULE_29__["PatientListComponent"] },
+                        { path: 'new', component: _chips_chips_component__WEBPACK_IMPORTED_MODULE_8__["ChipsComponent"] },
                         { path: 'patient-list', component: _patient_list_patient_list_component__WEBPACK_IMPORTED_MODULE_29__["PatientListComponent"] },
                         { path: 'study-detail/:Id', component: _study_detail_study_detail_component__WEBPACK_IMPORTED_MODULE_28__["StudyDetailComponent"] },
                         { path: 'study-edit/:Id', component: _chips_chips_component__WEBPACK_IMPORTED_MODULE_8__["ChipsComponent"] },
@@ -282,23 +284,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/esm2015/dialog.js");
-/* harmony import */ var _firebase_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../firebase.service */ "./src/app/firebase.service.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _angular_flex_layout_flex__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/flex-layout/flex */ "./node_modules/@angular/flex-layout/__ivy_ngcc__/esm2015/flex.js");
-/* harmony import */ var _angular_material_card__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/material/card */ "./node_modules/@angular/material/__ivy_ngcc__/esm2015/card.js");
-/* harmony import */ var _angular_material_form_field__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/material/form-field */ "./node_modules/@angular/material/__ivy_ngcc__/esm2015/form-field.js");
-/* harmony import */ var _angular_material_select__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/material/select */ "./node_modules/@angular/material/__ivy_ngcc__/esm2015/select.js");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
-/* harmony import */ var _angular_material_icon__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/material/icon */ "./node_modules/@angular/material/__ivy_ngcc__/esm2015/icon.js");
-/* harmony import */ var _angular_material_input__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/material/input */ "./node_modules/@angular/material/__ivy_ngcc__/esm2015/input.js");
-/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/__ivy_ngcc__/esm2015/material.js");
-/* harmony import */ var _angular_material_button__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/material/button */ "./node_modules/@angular/material/__ivy_ngcc__/esm2015/button.js");
-/* harmony import */ var _angular_material_grid_list__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/material/grid-list */ "./node_modules/@angular/material/__ivy_ngcc__/esm2015/grid-list.js");
-/* harmony import */ var _angular_material_core__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/material/core */ "./node_modules/@angular/material/__ivy_ngcc__/esm2015/core.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var _firebase_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../firebase.service */ "./src/app/firebase.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var _angular_flex_layout_flex__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/flex-layout/flex */ "./node_modules/@angular/flex-layout/__ivy_ngcc__/esm2015/flex.js");
+/* harmony import */ var _angular_material_card__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/material/card */ "./node_modules/@angular/material/__ivy_ngcc__/esm2015/card.js");
+/* harmony import */ var _angular_material_form_field__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/material/form-field */ "./node_modules/@angular/material/__ivy_ngcc__/esm2015/form-field.js");
+/* harmony import */ var _angular_material_select__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/material/select */ "./node_modules/@angular/material/__ivy_ngcc__/esm2015/select.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+/* harmony import */ var _angular_material_icon__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/material/icon */ "./node_modules/@angular/material/__ivy_ngcc__/esm2015/icon.js");
+/* harmony import */ var _angular_material_input__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/material/input */ "./node_modules/@angular/material/__ivy_ngcc__/esm2015/input.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/__ivy_ngcc__/esm2015/material.js");
+/* harmony import */ var _angular_material_button__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/material/button */ "./node_modules/@angular/material/__ivy_ngcc__/esm2015/button.js");
+/* harmony import */ var _angular_material_grid_list__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @angular/material/grid-list */ "./node_modules/@angular/material/__ivy_ngcc__/esm2015/grid-list.js");
+/* harmony import */ var _angular_material_core__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @angular/material/core */ "./node_modules/@angular/material/__ivy_ngcc__/esm2015/core.js");
+
 
 
 
 // import { RouterModule, Routes } from '@angular/router';
+
 
 
 
@@ -354,6 +360,7 @@ class ChipsComponent {
         this.route = route;
         this.dialog = dialog;
         this.router = router;
+        this.destroy$ = new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subject"]();
         this.checkoutForm = this.formBuilder.group({
             reader: "",
             study_date: "",
@@ -385,7 +392,9 @@ class ChipsComponent {
     }
     ngOnInit() {
         // console.log(this.totalprice);
-        this.route.paramMap.subscribe((params) => {
+        this.route.paramMap
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(this.destroy$))
+            .subscribe((params) => {
             this.reader = params.get("Id");
             console.log(this.reader);
             if (this.reader) {
@@ -399,20 +408,13 @@ class ChipsComponent {
         });
         this.interpreter$ = this.afService.getInterpreter();
     }
-    openDialogDelete() {
-        const dialogRef = this.dialog.open(ChipsDialog, {
-            data: { reader: this.reader },
-        });
-        dialogRef.afterClosed().subscribe((result) => {
-            this.delete();
-            // console.log(`Dialog result: ${result}`);
-        });
-    }
     openDialog(action) {
         const dialogRef = this.dialog.open(ChipsDialog, {
             data: { action: action },
         });
-        dialogRef.afterClosed().subscribe((result) => {
+        dialogRef.afterClosed()
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(this.destroy$))
+            .subscribe((result) => {
             console.log(result);
             if (result == "save") {
                 this.onSubmit();
@@ -423,7 +425,9 @@ class ChipsComponent {
         });
     }
     getStudyByReader(reader) {
-        this.afService.getStudyByReader(reader).subscribe((value) => {
+        this.afService.getStudyByReader(reader)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(this.destroy$))
+            .subscribe((value) => {
             if (value) {
                 this.data = value;
                 this.checkoutForm.setValue({
@@ -503,21 +507,39 @@ class ChipsComponent {
         // this.checkoutForm.reset();
     }
     delete() {
-        // console.log(this.reader)
+        const hxNumber = this.checkoutForm.value.hisnum;
         const oldString = this.reader;
-        const arr = oldString.split('/');
+        const arr = oldString.split("/");
         arr.pop();
-        const pushString = this.checkoutForm.value.accessnum + '_' + this.checkoutForm.value.reader;
+        const pushString = this.checkoutForm.value.accessnum + "_" + this.checkoutForm.value.reader;
         arr.push(pushString);
-        const reader = arr.join('/');
-        const id = String(reader).substring(0, reader.indexOf('/'));
-        console.log(id);
-        this.router.navigate(["study-detail/" + id]);
-        console.log(reader);
-        this.afService.deleteByReader(reader);
+        const reader = arr.join("/");
+        this.afService.getMRIbyHx(hxNumber)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(this.destroy$))
+            .subscribe((data) => {
+            console.log(data.length);
+            if (data.length === 1) {
+                this.router.navigate(["study-detail/" + hxNumber]);
+                const route = "DEMENTIA/studies/" + hxNumber;
+                console.log(route);
+                this.afService.deleteByReader(route);
+            }
+            else {
+                this.router.navigate(["study-detail/" + hxNumber]);
+                const route = "DEMENTIA/studies/" + reader;
+                console.log(route);
+                this.afService.deleteByReader(route);
+            }
+        });
+        // const id = String(reader).substring(0, reader.indexOf('/'))
+        // console.log(id);
+    }
+    ngOnDestroy() {
+        this.destroy$.next(true);
+        console.log("💥Destroyed");
     }
 }
-ChipsComponent.ɵfac = function ChipsComponent_Factory(t) { return new (t || ChipsComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_firebase_service__WEBPACK_IMPORTED_MODULE_3__["FirebaseService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"])); };
+ChipsComponent.ɵfac = function ChipsComponent_Factory(t) { return new (t || ChipsComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_firebase_service__WEBPACK_IMPORTED_MODULE_5__["FirebaseService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"])); };
 ChipsComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: ChipsComponent, selectors: [["app-chips"]], decls: 247, vars: 14, consts: [[3, "formGroup", "ngSubmit"], ["fxLayout", "column"], ["fxLayout", "row", "fxLayoutAlign", "space-around center", "fxLayout.xs", "column"], ["appearance", "outline", "fxFlex", "23"], ["formControlName", "reader"], [3, "value", 4, "ngFor", "ngForOf"], ["matSuffix", ""], ["matInput", "", "placeholder", "\u6AA2\u67E5\u65E5\u671F", "formControlName", "study_date", 3, "matDatepicker"], ["matSuffix", "", 3, "for"], ["picker", ""], ["matInput", "", "placeholder", "\u75C5\u4F8B\u865F", "formControlName", "hisnum"], ["matInput", "", "placeholder", "\u6AA2\u67E5\u55AE\u865F", "formControlName", "accessnum"], ["mat-raised-button", "", "color", "accent", "type", "button", 3, "click", 4, "ngIf"], ["mat-raised-button", "", "color", "primary", "type", "button", 3, "disabled", "click"], ["fxLayout", "row", "fxLayoutAlign", "space-around none", "fxLayout.xs", "column"], [1, "example-card"], ["mat-card-image", "", "src", "../../assets/central_semiovale.png", "alt", "Photo of a Shiba Inu"], ["cols", "2", "rowHeight", "2:1"], ["appearance", "outline", "fxFill", ""], ["type", "number", "pattern", "[0-9]*", "inputmode", "numeric", "matInput", "", "placeholder", "RT_ANT", "formControlName", "A_RT_ANT"], ["type", "number", "pattern", "[0-9]*", "inputmode", "numeric", "matInput", "", "placeholder", "LT_ANT", "formControlName", "A_LT_ANT"], ["type", "number", "pattern", "[0-9]*", "inputmode", "numeric", "matInput", "", "placeholder", "RT_POST", "formControlName", "A_RT_POST"], ["type", "number", "pattern", "[0-9]*", "inputmode", "numeric", "matInput", "", "placeholder", "LT_POST", "formControlName", "A_LT_POST"], ["mat-card-image", "", "src", "../../assets/corona_radiata.png", "alt", "Photo of a Shiba Inu"], [1, "test"], ["type", "number", "pattern", "[0-9]*", "inputmode", "numeric", "matInput", "", "placeholder", "RT_ANT", "formControlName", "B_RT_ANT"], ["type", "number", "pattern", "[0-9]*", "inputmode", "numeric", "matInput", "", "placeholder", "LT_ANT", "formControlName", "B_LT_ANT"], ["type", "number", "pattern", "[0-9]*", "inputmode", "numeric", "matInput", "", "placeholder", "RT_POST", "formControlName", "B_RT_POST"], ["type", "number", "pattern", "[0-9]*", "inputmode", "numeric", "matInput", "", "placeholder", "LT_POST", "formControlName", "B_LT_POST"], ["type", "number", "pattern", "[0-9]*", "inputmode", "numeric", "matInput", "", "placeholder", "RT_Cingulate", "formControlName", "B_RT_Cingulate"], ["type", "number", "pattern", "[0-9]*", "inputmode", "numeric", "matInput", "", "placeholder", "LT_Cingulate", "formControlName", "B_LT_Cingulate"], ["mat-card-image", "", "src", "../../assets/high_external_capsule.png", "alt", "Photo of a Shiba Inu"], ["type", "number", "pattern", "[0-9]*", "inputmode", "numeric", "matInput", "", "placeholder", "RT_Cingulate", "formControlName", "C_RT_Cingulate"], ["type", "number", "pattern", "[0-9]*", "inputmode", "numeric", "matInput", "", "placeholder", "LT_Cingular", "formControlName", "C_LT_Cingulate"], ["type", "number", "pattern", "[0-9]*", "inputmode", "numeric", "matInput", "", "placeholder", "RT_ANT", "formControlName", "C_RT_ANT"], ["type", "number", "pattern", "[0-9]*", "inputmode", "numeric", "matInput", "", "placeholder", "LT_ANT", "formControlName", "C_LT_ANT"], ["type", "number", "pattern", "[0-9]*", "inputmode", "numeric", "matInput", "", "placeholder", "RT_POST", "formControlName", "C_RT_POST"], ["type", "number", "pattern", "[0-9]*", "inputmode", "numeric", "matInput", "", "placeholder", "LT_POST", "formControlName", "C_LT_POST"], ["mat-card-image", "", "src", "../../assets/low_external_capsule.png", "alt", "Photo of a Shiba Inu"], ["type", "number", "pattern", "[0-9]*", "inputmode", "numeric", "matInput", "", "placeholder", "RT_ANT", "formControlName", "D_RT_ANT"], ["type", "number", "pattern", "[0-9]*", "inputmode", "numeric", "matInput", "", "placeholder", "LT_ANT", "formControlName", "D_LT_ANT"], ["type", "number", "pattern", "[0-9]*", "inputmode", "numeric", "matInput", "", "placeholder", "RT_POST", "formControlName", "D_RT_POST"], ["type", "number", "pattern", "[0-9]*", "inputmode", "numeric", "matInput", "", "placeholder", "LT_POST", "formControlName", "D_LT_POST"], ["fxLayout", "row", "fxLayoutAlign", "space-around start", "fxLayout.xs", "column"], ["fxFlex", "50"], ["mat-card-image", "", "src", "../../assets/MTA.png", "width", "auto", 1, "test"], ["fxFlex", "40"], ["mat-card-image", "", "src", "../../assets/hippocampus.png", "width", "auto", 1, "test"], ["fxLayout", "row", "fxLayoutAlign", "space-around center"], ["appearance", "outline", "fxFlex", "40"], ["type", "number", "pattern", "[0-9]*", "inputmode", "numeric", "matInput", "", "placeholder", "MTA_RT", "formControlName", "MTA_RT"], ["type", "number", "pattern", "[0-9]*", "inputmode", "numeric", "matInput", "", "placeholder", "MTA_LT", "formControlName", "MTA_LT"], [3, "value"], ["mat-raised-button", "", "color", "accent", "type", "button", 3, "click"]], template: function ChipsComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "form", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngSubmit", function ChipsComponent_Template_form_ngSubmit_0_listener($event) { return ctx.onSubmit(); });
@@ -582,7 +604,7 @@ ChipsComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineCom
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](41);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](42, "mat-card-subtitle");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](43, "0: normal, 1: mild, and 2: moderate to severe");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](43, "0: normal, 1: mild(less than 50% of region involved) and 2: moderate to severe(greater than 50% of region involved)");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](44, "mat-card-content");
@@ -937,7 +959,7 @@ ChipsComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineCom
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("D: ", (ctx.checkoutForm.value.D_RT_ANT - 0 + (ctx.checkoutForm.value.D_LT_ANT - 0) + (ctx.checkoutForm.value.D_RT_POST - 0) + (ctx.checkoutForm.value.D_LT_POST - 0)) * 4, " ");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](37);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("MTA: ", ctx.checkoutForm.value.MTA_RT - 0 + (ctx.checkoutForm.value.MTA_LT - 0), "");
-    } }, directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["ɵangular_packages_forms_forms_y"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormGroupDirective"], _angular_flex_layout_flex__WEBPACK_IMPORTED_MODULE_5__["DefaultLayoutDirective"], _angular_material_card__WEBPACK_IMPORTED_MODULE_6__["MatCard"], _angular_material_card__WEBPACK_IMPORTED_MODULE_6__["MatCardHeader"], _angular_material_card__WEBPACK_IMPORTED_MODULE_6__["MatCardTitle"], _angular_material_card__WEBPACK_IMPORTED_MODULE_6__["MatCardContent"], _angular_flex_layout_flex__WEBPACK_IMPORTED_MODULE_5__["DefaultLayoutAlignDirective"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_7__["MatFormField"], _angular_flex_layout_flex__WEBPACK_IMPORTED_MODULE_5__["DefaultFlexDirective"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_7__["MatLabel"], _angular_material_select__WEBPACK_IMPORTED_MODULE_8__["MatSelect"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControlName"], _angular_common__WEBPACK_IMPORTED_MODULE_9__["NgForOf"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_10__["MatIcon"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_7__["MatSuffix"], _angular_material_input__WEBPACK_IMPORTED_MODULE_11__["MatInput"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["DefaultValueAccessor"], _angular_material__WEBPACK_IMPORTED_MODULE_12__["MatDatepickerInput"], _angular_material__WEBPACK_IMPORTED_MODULE_12__["MatDatepickerToggle"], _angular_material__WEBPACK_IMPORTED_MODULE_12__["MatDatepicker"], _angular_material_card__WEBPACK_IMPORTED_MODULE_6__["MatCardActions"], _angular_common__WEBPACK_IMPORTED_MODULE_9__["NgIf"], _angular_material_button__WEBPACK_IMPORTED_MODULE_13__["MatButton"], _angular_material_card__WEBPACK_IMPORTED_MODULE_6__["MatCardSubtitle"], _angular_material_card__WEBPACK_IMPORTED_MODULE_6__["MatCardImage"], _angular_material_grid_list__WEBPACK_IMPORTED_MODULE_14__["MatGridList"], _angular_material_grid_list__WEBPACK_IMPORTED_MODULE_14__["MatGridTile"], _angular_flex_layout_flex__WEBPACK_IMPORTED_MODULE_5__["FlexFillDirective"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NumberValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["PatternValidator"], _angular_material_core__WEBPACK_IMPORTED_MODULE_15__["MatOption"]], pipes: [_angular_common__WEBPACK_IMPORTED_MODULE_9__["AsyncPipe"]], styles: ["table[_ngcontent-%COMP%] {\n  width: 100%;\n}\n\n\n\n\n\n\n\n\n\nmat-card[_ngcontent-%COMP%] {\n  margin: 5px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY2hpcHMvY2hpcHMuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLFdBQVc7QUFDYjs7QUFFQTs7O0dBR0c7O0FBRUg7OztHQUdHOztBQUVIOzs7Ozs7Ozs7R0FTRzs7QUFHSDs7Ozs7OztHQU9HOztBQUVIO0VBQ0UsV0FBVztBQUNiIiwiZmlsZSI6InNyYy9hcHAvY2hpcHMvY2hpcHMuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbInRhYmxlIHtcbiAgd2lkdGg6IDEwMCU7XG59XG5cbi8qIC5tYXQtY2FyZC1pbWFnZSAge1xuICBvYmplY3QtZml0OiBjb3ZlcjtcbiAgd2lkdGg6IDMwMHB4O1xufSAqL1xuXG4vKiAudGVzdCB7XG4gIGhlaWdodDogNDAwcHg7XG4gIHdpZHRoOiBhdXRvO1xufSAqL1xuXG4vKiAuY29udGFpbmVyXzIge1xuICBib3JkZXItcmFkaXVzOiAxMHB4O1xuICBtYXJnaW46IDVweDtcbiAgcGFkZGluZzogNXB4O1xufVxuXG5cbi5leGFtcGxlLWNhcmQge1xuICBtYXgtd2lkdGg6IDQwMHB4O1xufSAqL1xuXG5cbi8qIC5leGFtcGxlLWNvbnRhaW5lciB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XG59XG5cbi5leGFtcGxlLWNvbnRhaW5lciA+ICoge1xuICB3aWR0aDogMTAwJTtcbn0gKi9cblxubWF0LWNhcmQge1xuICBtYXJnaW46IDVweDtcbn0iXX0= */"] });
+    } }, directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["ɵangular_packages_forms_forms_y"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormGroupDirective"], _angular_flex_layout_flex__WEBPACK_IMPORTED_MODULE_7__["DefaultLayoutDirective"], _angular_material_card__WEBPACK_IMPORTED_MODULE_8__["MatCard"], _angular_material_card__WEBPACK_IMPORTED_MODULE_8__["MatCardHeader"], _angular_material_card__WEBPACK_IMPORTED_MODULE_8__["MatCardTitle"], _angular_material_card__WEBPACK_IMPORTED_MODULE_8__["MatCardContent"], _angular_flex_layout_flex__WEBPACK_IMPORTED_MODULE_7__["DefaultLayoutAlignDirective"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_9__["MatFormField"], _angular_flex_layout_flex__WEBPACK_IMPORTED_MODULE_7__["DefaultFlexDirective"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_9__["MatLabel"], _angular_material_select__WEBPACK_IMPORTED_MODULE_10__["MatSelect"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControlName"], _angular_common__WEBPACK_IMPORTED_MODULE_11__["NgForOf"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_12__["MatIcon"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_9__["MatSuffix"], _angular_material_input__WEBPACK_IMPORTED_MODULE_13__["MatInput"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["DefaultValueAccessor"], _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatDatepickerInput"], _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatDatepickerToggle"], _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatDatepicker"], _angular_material_card__WEBPACK_IMPORTED_MODULE_8__["MatCardActions"], _angular_common__WEBPACK_IMPORTED_MODULE_11__["NgIf"], _angular_material_button__WEBPACK_IMPORTED_MODULE_15__["MatButton"], _angular_material_card__WEBPACK_IMPORTED_MODULE_8__["MatCardSubtitle"], _angular_material_card__WEBPACK_IMPORTED_MODULE_8__["MatCardImage"], _angular_material_grid_list__WEBPACK_IMPORTED_MODULE_16__["MatGridList"], _angular_material_grid_list__WEBPACK_IMPORTED_MODULE_16__["MatGridTile"], _angular_flex_layout_flex__WEBPACK_IMPORTED_MODULE_7__["FlexFillDirective"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NumberValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["PatternValidator"], _angular_material_core__WEBPACK_IMPORTED_MODULE_17__["MatOption"]], pipes: [_angular_common__WEBPACK_IMPORTED_MODULE_11__["AsyncPipe"]], styles: ["table[_ngcontent-%COMP%] {\n  width: 100%;\n}\n\n\n\n\n\n\n\n\n\nmat-card[_ngcontent-%COMP%] {\n  margin: 5px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY2hpcHMvY2hpcHMuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLFdBQVc7QUFDYjs7QUFFQTs7O0dBR0c7O0FBRUg7OztHQUdHOztBQUVIOzs7Ozs7Ozs7R0FTRzs7QUFHSDs7Ozs7OztHQU9HOztBQUVIO0VBQ0UsV0FBVztBQUNiIiwiZmlsZSI6InNyYy9hcHAvY2hpcHMvY2hpcHMuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbInRhYmxlIHtcbiAgd2lkdGg6IDEwMCU7XG59XG5cbi8qIC5tYXQtY2FyZC1pbWFnZSAge1xuICBvYmplY3QtZml0OiBjb3ZlcjtcbiAgd2lkdGg6IDMwMHB4O1xufSAqL1xuXG4vKiAudGVzdCB7XG4gIGhlaWdodDogNDAwcHg7XG4gIHdpZHRoOiBhdXRvO1xufSAqL1xuXG4vKiAuY29udGFpbmVyXzIge1xuICBib3JkZXItcmFkaXVzOiAxMHB4O1xuICBtYXJnaW46IDVweDtcbiAgcGFkZGluZzogNXB4O1xufVxuXG5cbi5leGFtcGxlLWNhcmQge1xuICBtYXgtd2lkdGg6IDQwMHB4O1xufSAqL1xuXG5cbi8qIC5leGFtcGxlLWNvbnRhaW5lciB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XG59XG5cbi5leGFtcGxlLWNvbnRhaW5lciA+ICoge1xuICB3aWR0aDogMTAwJTtcbn0gKi9cblxubWF0LWNhcmQge1xuICBtYXJnaW46IDVweDtcbn0iXX0= */"] });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](ChipsComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
@@ -945,7 +967,7 @@ ChipsComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineCom
                 templateUrl: "./chips.component.html",
                 styleUrls: ["./chips.component.css"],
             }]
-    }], function () { return [{ type: _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"] }, { type: _firebase_service__WEBPACK_IMPORTED_MODULE_3__["FirebaseService"] }, { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"] }, { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"] }, { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] }]; }, null); })();
+    }], function () { return [{ type: _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"] }, { type: _firebase_service__WEBPACK_IMPORTED_MODULE_5__["FirebaseService"] }, { type: _angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"] }, { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"] }, { type: _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"] }]; }, null); })();
 class ChipsDialog {
     constructor(data, dialogRef) {
         this.data = data;
@@ -977,7 +999,7 @@ ChipsDialog.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineCompon
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.data.action == "save");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.data.action == "delete");
-    } }, directives: [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogTitle"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogContent"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogActions"], _angular_common__WEBPACK_IMPORTED_MODULE_9__["NgIf"], _angular_material_button__WEBPACK_IMPORTED_MODULE_13__["MatButton"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogClose"]], encapsulation: 2 });
+    } }, directives: [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogTitle"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogContent"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogActions"], _angular_common__WEBPACK_IMPORTED_MODULE_11__["NgIf"], _angular_material_button__WEBPACK_IMPORTED_MODULE_15__["MatButton"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogClose"]], encapsulation: 2 });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](ChipsDialog, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
@@ -1122,8 +1144,8 @@ class FirebaseService {
             .then(() => console.log("Renew updateTime!"))
             .catch(err => console.log(err));
     }
-    deleteByReader(reader) {
-        return this.dbr.object('DEMENTIA/studies/' + reader)
+    deleteByReader(route) {
+        return this.dbr.object(route)
             // return this.dbr.object('studies/' + reader)
             .remove()
             .then(() => console.log("delete OK"))
@@ -1706,7 +1728,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const _c0 = function () { return ["/"]; };
+const _c0 = function () { return ["/new"]; };
 const _c1 = function () { return ["/patient-list"]; };
 class TopBarComponent {
     constructor() {

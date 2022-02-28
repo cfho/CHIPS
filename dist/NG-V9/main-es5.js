@@ -377,6 +377,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         path: '',
         component: _patient_list_patient_list_component__WEBPACK_IMPORTED_MODULE_29__["PatientListComponent"]
       }, {
+        path: 'new',
+        component: _chips_chips_component__WEBPACK_IMPORTED_MODULE_8__["ChipsComponent"]
+      }, {
         path: 'patient-list',
         component: _patient_list_patient_list_component__WEBPACK_IMPORTED_MODULE_29__["PatientListComponent"]
       }, {
@@ -404,6 +407,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"], _angular_fire__WEBPACK_IMPORTED_MODULE_25__["AngularFireModule"].initializeApp(_environments_environment__WEBPACK_IMPORTED_MODULE_26__["environment"].firebase), _angular_fire_database__WEBPACK_IMPORTED_MODULE_23__["AngularFireDatabaseModule"], _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_24__["AngularFirestoreModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["ReactiveFormsModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClientModule"], _angular_flex_layout__WEBPACK_IMPORTED_MODULE_5__["FlexLayoutModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_9__["BrowserAnimationsModule"], _angular_material_card__WEBPACK_IMPORTED_MODULE_10__["MatCardModule"], _angular_material_button__WEBPACK_IMPORTED_MODULE_11__["MatButtonModule"], _angular_material_grid_list__WEBPACK_IMPORTED_MODULE_12__["MatGridListModule"], _angular_material_input__WEBPACK_IMPORTED_MODULE_13__["MatInputModule"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_14__["MatFormFieldModule"], _angular_material_select__WEBPACK_IMPORTED_MODULE_15__["MatSelectModule"], _angular_material__WEBPACK_IMPORTED_MODULE_16__["MatDatepickerModule"], _angular_material__WEBPACK_IMPORTED_MODULE_16__["MatNativeDateModule"], _angular_material_tabs__WEBPACK_IMPORTED_MODULE_17__["MatTabsModule"], _angular_material_table__WEBPACK_IMPORTED_MODULE_18__["MatTableModule"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_19__["MatIconModule"], _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_20__["MatToolbarModule"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_21__["MatDialogModule"], _angular_material_paginator__WEBPACK_IMPORTED_MODULE_22__["MatPaginatorModule"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forRoot([{
             path: '',
             component: _patient_list_patient_list_component__WEBPACK_IMPORTED_MODULE_29__["PatientListComponent"]
+          }, {
+            path: 'new',
+            component: _chips_chips_component__WEBPACK_IMPORTED_MODULE_8__["ChipsComponent"]
           }, {
             path: 'patient-list',
             component: _patient_list_patient_list_component__WEBPACK_IMPORTED_MODULE_29__["PatientListComponent"]
@@ -471,79 +477,91 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _firebase_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! rxjs/operators */
+    "./node_modules/rxjs/_esm2015/operators/index.js");
+    /* harmony import */
+
+
+    var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! rxjs */
+    "./node_modules/rxjs/_esm2015/index.js");
+    /* harmony import */
+
+
+    var _firebase_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! ../firebase.service */
     "./src/app/firebase.service.ts");
     /* harmony import */
 
 
-    var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! @angular/router */
     "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
     /* harmony import */
 
 
-    var _angular_flex_layout_flex__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    var _angular_flex_layout_flex__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! @angular/flex-layout/flex */
     "./node_modules/@angular/flex-layout/__ivy_ngcc__/esm2015/flex.js");
     /* harmony import */
 
 
-    var _angular_material_card__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var _angular_material_card__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
     /*! @angular/material/card */
     "./node_modules/@angular/material/__ivy_ngcc__/esm2015/card.js");
     /* harmony import */
 
 
-    var _angular_material_form_field__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var _angular_material_form_field__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
     /*! @angular/material/form-field */
     "./node_modules/@angular/material/__ivy_ngcc__/esm2015/form-field.js");
     /* harmony import */
 
 
-    var _angular_material_select__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    var _angular_material_select__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
     /*! @angular/material/select */
     "./node_modules/@angular/material/__ivy_ngcc__/esm2015/select.js");
     /* harmony import */
 
 
-    var _angular_common__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    var _angular_common__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
     /*! @angular/common */
     "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
     /* harmony import */
 
 
-    var _angular_material_icon__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    var _angular_material_icon__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
     /*! @angular/material/icon */
     "./node_modules/@angular/material/__ivy_ngcc__/esm2015/icon.js");
     /* harmony import */
 
 
-    var _angular_material_input__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+    var _angular_material_input__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
     /*! @angular/material/input */
     "./node_modules/@angular/material/__ivy_ngcc__/esm2015/input.js");
     /* harmony import */
 
 
-    var _angular_material__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+    var _angular_material__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
     /*! @angular/material */
     "./node_modules/@angular/material/__ivy_ngcc__/esm2015/material.js");
     /* harmony import */
 
 
-    var _angular_material_button__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+    var _angular_material_button__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
     /*! @angular/material/button */
     "./node_modules/@angular/material/__ivy_ngcc__/esm2015/button.js");
     /* harmony import */
 
 
-    var _angular_material_grid_list__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
+    var _angular_material_grid_list__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(
     /*! @angular/material/grid-list */
     "./node_modules/@angular/material/__ivy_ngcc__/esm2015/grid-list.js");
     /* harmony import */
 
 
-    var _angular_material_core__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
+    var _angular_material_core__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(
     /*! @angular/material/core */
     "./node_modules/@angular/material/__ivy_ngcc__/esm2015/core.js"); // import { RouterModule, Routes } from '@angular/router';
 
@@ -627,6 +645,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.route = route;
         this.dialog = dialog;
         this.router = router;
+        this.destroy$ = new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subject"]();
         this.checkoutForm = this.formBuilder.group({
           reader: "",
           study_date: "",
@@ -663,7 +682,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var _this2 = this;
 
           // console.log(this.totalprice);
-          this.route.paramMap.subscribe(function (params) {
+          this.route.paramMap.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(this.destroy$)).subscribe(function (params) {
             _this2.reader = params.get("Id");
             console.log(_this2.reader);
 
@@ -679,76 +698,61 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.interpreter$ = this.afService.getInterpreter();
         }
       }, {
-        key: "openDialogDelete",
-        value: function openDialogDelete() {
-          var _this3 = this;
-
-          var dialogRef = this.dialog.open(ChipsDialog, {
-            data: {
-              reader: this.reader
-            }
-          });
-          dialogRef.afterClosed().subscribe(function (result) {
-            _this3.delete(); // console.log(`Dialog result: ${result}`);
-
-          });
-        }
-      }, {
         key: "openDialog",
         value: function openDialog(action) {
-          var _this4 = this;
+          var _this3 = this;
 
           var dialogRef = this.dialog.open(ChipsDialog, {
             data: {
               action: action
             }
           });
-          dialogRef.afterClosed().subscribe(function (result) {
+          dialogRef.afterClosed().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(this.destroy$)).subscribe(function (result) {
             console.log(result);
 
             if (result == "save") {
-              _this4.onSubmit();
+              _this3.onSubmit();
             } else if (result == "delete") {
-              _this4.delete();
+              _this3.delete();
             }
           });
         }
       }, {
         key: "getStudyByReader",
         value: function getStudyByReader(reader) {
-          var _this5 = this;
+          var _this4 = this;
 
-          this.afService.getStudyByReader(reader).subscribe(function (value) {
+          this.afService.getStudyByReader(reader).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(this.destroy$)).subscribe(function (value) {
             if (value) {
-              _this5.data = value;
+              _this4.data = value;
 
-              _this5.checkoutForm.setValue({
-                reader: _this5.data.reader,
-                study_date: _this5.data.date,
-                hisnum: _this5.data.hisnum,
-                accessnum: _this5.data.accessnum,
-                A_RT_ANT: _this5.data.A_RT_ANT,
-                A_LT_ANT: _this5.data.A_LT_ANT,
-                A_RT_POST: _this5.data.A_RT_POST,
-                A_LT_POST: _this5.data.A_LT_POST,
-                B_RT_ANT: _this5.data.B_RT_ANT,
-                B_LT_ANT: _this5.data.B_LT_ANT,
-                B_RT_POST: _this5.data.B_RT_POST,
-                B_LT_POST: _this5.data.B_LT_POST,
-                B_RT_Cingulate: _this5.data.B_RT_Cingulate,
-                B_LT_Cingulate: _this5.data.B_LT_Cingulate,
-                C_RT_ANT: _this5.data.C_RT_ANT,
-                C_LT_ANT: _this5.data.C_LT_ANT,
-                C_RT_POST: _this5.data.C_RT_POST,
-                C_LT_POST: _this5.data.C_LT_POST,
-                C_RT_Cingulate: _this5.data.C_RT_Cingulate,
-                C_LT_Cingulate: _this5.data.C_LT_Cingulate,
-                D_RT_ANT: _this5.data.D_RT_ANT,
-                D_LT_ANT: _this5.data.D_LT_ANT,
-                D_RT_POST: _this5.data.D_RT_POST,
-                D_LT_POST: _this5.data.D_LT_POST,
-                MTA_RT: _this5.data.MTA_RT,
-                MTA_LT: _this5.data.MTA_LT
+              _this4.checkoutForm.setValue({
+                reader: _this4.data.reader,
+                study_date: _this4.data.date,
+                hisnum: _this4.data.hisnum,
+                accessnum: _this4.data.accessnum,
+                A_RT_ANT: _this4.data.A_RT_ANT,
+                A_LT_ANT: _this4.data.A_LT_ANT,
+                A_RT_POST: _this4.data.A_RT_POST,
+                A_LT_POST: _this4.data.A_LT_POST,
+                B_RT_ANT: _this4.data.B_RT_ANT,
+                B_LT_ANT: _this4.data.B_LT_ANT,
+                B_RT_POST: _this4.data.B_RT_POST,
+                B_LT_POST: _this4.data.B_LT_POST,
+                B_RT_Cingulate: _this4.data.B_RT_Cingulate,
+                B_LT_Cingulate: _this4.data.B_LT_Cingulate,
+                C_RT_ANT: _this4.data.C_RT_ANT,
+                C_LT_ANT: _this4.data.C_LT_ANT,
+                C_RT_POST: _this4.data.C_RT_POST,
+                C_LT_POST: _this4.data.C_LT_POST,
+                C_RT_Cingulate: _this4.data.C_RT_Cingulate,
+                C_LT_Cingulate: _this4.data.C_LT_Cingulate,
+                D_RT_ANT: _this4.data.D_RT_ANT,
+                D_LT_ANT: _this4.data.D_LT_ANT,
+                D_RT_POST: _this4.data.D_RT_POST,
+                D_LT_POST: _this4.data.D_LT_POST,
+                MTA_RT: _this4.data.MTA_RT,
+                MTA_LT: _this4.data.MTA_LT
               });
             }
           });
@@ -774,18 +778,42 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "delete",
         value: function _delete() {
-          // console.log(this.reader)
+          var _this5 = this;
+
+          var hxNumber = this.checkoutForm.value.hisnum;
           var oldString = this.reader;
-          var arr = oldString.split('/');
+          var arr = oldString.split("/");
           arr.pop();
-          var pushString = this.checkoutForm.value.accessnum + '_' + this.checkoutForm.value.reader;
+          var pushString = this.checkoutForm.value.accessnum + "_" + this.checkoutForm.value.reader;
           arr.push(pushString);
-          var reader = arr.join('/');
-          var id = String(reader).substring(0, reader.indexOf('/'));
-          console.log(id);
-          this.router.navigate(["study-detail/" + id]);
-          console.log(reader);
-          this.afService.deleteByReader(reader);
+          var reader = arr.join("/");
+          this.afService.getMRIbyHx(hxNumber).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(this.destroy$)).subscribe(function (data) {
+            console.log(data.length);
+
+            if (data.length === 1) {
+              _this5.router.navigate(["study-detail/" + hxNumber]);
+
+              var route = "DEMENTIA/studies/" + hxNumber;
+              console.log(route);
+
+              _this5.afService.deleteByReader(route);
+            } else {
+              _this5.router.navigate(["study-detail/" + hxNumber]);
+
+              var _route = "DEMENTIA/studies/" + reader;
+
+              console.log(_route);
+
+              _this5.afService.deleteByReader(_route);
+            }
+          }); // const id = String(reader).substring(0, reader.indexOf('/'))
+          // console.log(id);
+        }
+      }, {
+        key: "ngOnDestroy",
+        value: function ngOnDestroy() {
+          this.destroy$.next(true);
+          console.log("💥Destroyed");
         }
       }]);
 
@@ -793,7 +821,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     }();
 
     ChipsComponent.ɵfac = function ChipsComponent_Factory(t) {
-      return new (t || ChipsComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_firebase_service__WEBPACK_IMPORTED_MODULE_3__["FirebaseService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]));
+      return new (t || ChipsComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_firebase_service__WEBPACK_IMPORTED_MODULE_5__["FirebaseService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"]));
     };
 
     ChipsComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
@@ -934,7 +962,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](42, "mat-card-subtitle");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](43, "0: normal, 1: mild, and 2: moderate to severe");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](43, "0: normal, 1: mild(less than 50% of region involved) and 2: moderate to severe(greater than 50% of region involved)");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -1645,8 +1673,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("MTA: ", ctx.checkoutForm.value.MTA_RT - 0 + (ctx.checkoutForm.value.MTA_LT - 0), "");
         }
       },
-      directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["ɵangular_packages_forms_forms_y"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormGroupDirective"], _angular_flex_layout_flex__WEBPACK_IMPORTED_MODULE_5__["DefaultLayoutDirective"], _angular_material_card__WEBPACK_IMPORTED_MODULE_6__["MatCard"], _angular_material_card__WEBPACK_IMPORTED_MODULE_6__["MatCardHeader"], _angular_material_card__WEBPACK_IMPORTED_MODULE_6__["MatCardTitle"], _angular_material_card__WEBPACK_IMPORTED_MODULE_6__["MatCardContent"], _angular_flex_layout_flex__WEBPACK_IMPORTED_MODULE_5__["DefaultLayoutAlignDirective"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_7__["MatFormField"], _angular_flex_layout_flex__WEBPACK_IMPORTED_MODULE_5__["DefaultFlexDirective"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_7__["MatLabel"], _angular_material_select__WEBPACK_IMPORTED_MODULE_8__["MatSelect"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControlName"], _angular_common__WEBPACK_IMPORTED_MODULE_9__["NgForOf"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_10__["MatIcon"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_7__["MatSuffix"], _angular_material_input__WEBPACK_IMPORTED_MODULE_11__["MatInput"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["DefaultValueAccessor"], _angular_material__WEBPACK_IMPORTED_MODULE_12__["MatDatepickerInput"], _angular_material__WEBPACK_IMPORTED_MODULE_12__["MatDatepickerToggle"], _angular_material__WEBPACK_IMPORTED_MODULE_12__["MatDatepicker"], _angular_material_card__WEBPACK_IMPORTED_MODULE_6__["MatCardActions"], _angular_common__WEBPACK_IMPORTED_MODULE_9__["NgIf"], _angular_material_button__WEBPACK_IMPORTED_MODULE_13__["MatButton"], _angular_material_card__WEBPACK_IMPORTED_MODULE_6__["MatCardSubtitle"], _angular_material_card__WEBPACK_IMPORTED_MODULE_6__["MatCardImage"], _angular_material_grid_list__WEBPACK_IMPORTED_MODULE_14__["MatGridList"], _angular_material_grid_list__WEBPACK_IMPORTED_MODULE_14__["MatGridTile"], _angular_flex_layout_flex__WEBPACK_IMPORTED_MODULE_5__["FlexFillDirective"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NumberValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["PatternValidator"], _angular_material_core__WEBPACK_IMPORTED_MODULE_15__["MatOption"]],
-      pipes: [_angular_common__WEBPACK_IMPORTED_MODULE_9__["AsyncPipe"]],
+      directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["ɵangular_packages_forms_forms_y"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormGroupDirective"], _angular_flex_layout_flex__WEBPACK_IMPORTED_MODULE_7__["DefaultLayoutDirective"], _angular_material_card__WEBPACK_IMPORTED_MODULE_8__["MatCard"], _angular_material_card__WEBPACK_IMPORTED_MODULE_8__["MatCardHeader"], _angular_material_card__WEBPACK_IMPORTED_MODULE_8__["MatCardTitle"], _angular_material_card__WEBPACK_IMPORTED_MODULE_8__["MatCardContent"], _angular_flex_layout_flex__WEBPACK_IMPORTED_MODULE_7__["DefaultLayoutAlignDirective"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_9__["MatFormField"], _angular_flex_layout_flex__WEBPACK_IMPORTED_MODULE_7__["DefaultFlexDirective"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_9__["MatLabel"], _angular_material_select__WEBPACK_IMPORTED_MODULE_10__["MatSelect"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControlName"], _angular_common__WEBPACK_IMPORTED_MODULE_11__["NgForOf"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_12__["MatIcon"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_9__["MatSuffix"], _angular_material_input__WEBPACK_IMPORTED_MODULE_13__["MatInput"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["DefaultValueAccessor"], _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatDatepickerInput"], _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatDatepickerToggle"], _angular_material__WEBPACK_IMPORTED_MODULE_14__["MatDatepicker"], _angular_material_card__WEBPACK_IMPORTED_MODULE_8__["MatCardActions"], _angular_common__WEBPACK_IMPORTED_MODULE_11__["NgIf"], _angular_material_button__WEBPACK_IMPORTED_MODULE_15__["MatButton"], _angular_material_card__WEBPACK_IMPORTED_MODULE_8__["MatCardSubtitle"], _angular_material_card__WEBPACK_IMPORTED_MODULE_8__["MatCardImage"], _angular_material_grid_list__WEBPACK_IMPORTED_MODULE_16__["MatGridList"], _angular_material_grid_list__WEBPACK_IMPORTED_MODULE_16__["MatGridTile"], _angular_flex_layout_flex__WEBPACK_IMPORTED_MODULE_7__["FlexFillDirective"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NumberValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["PatternValidator"], _angular_material_core__WEBPACK_IMPORTED_MODULE_17__["MatOption"]],
+      pipes: [_angular_common__WEBPACK_IMPORTED_MODULE_11__["AsyncPipe"]],
       styles: ["table[_ngcontent-%COMP%] {\n  width: 100%;\n}\n\n\n\n\n\n\n\n\n\nmat-card[_ngcontent-%COMP%] {\n  margin: 5px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY2hpcHMvY2hpcHMuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLFdBQVc7QUFDYjs7QUFFQTs7O0dBR0c7O0FBRUg7OztHQUdHOztBQUVIOzs7Ozs7Ozs7R0FTRzs7QUFHSDs7Ozs7OztHQU9HOztBQUVIO0VBQ0UsV0FBVztBQUNiIiwiZmlsZSI6InNyYy9hcHAvY2hpcHMvY2hpcHMuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbInRhYmxlIHtcbiAgd2lkdGg6IDEwMCU7XG59XG5cbi8qIC5tYXQtY2FyZC1pbWFnZSAge1xuICBvYmplY3QtZml0OiBjb3ZlcjtcbiAgd2lkdGg6IDMwMHB4O1xufSAqL1xuXG4vKiAudGVzdCB7XG4gIGhlaWdodDogNDAwcHg7XG4gIHdpZHRoOiBhdXRvO1xufSAqL1xuXG4vKiAuY29udGFpbmVyXzIge1xuICBib3JkZXItcmFkaXVzOiAxMHB4O1xuICBtYXJnaW46IDVweDtcbiAgcGFkZGluZzogNXB4O1xufVxuXG5cbi5leGFtcGxlLWNhcmQge1xuICBtYXgtd2lkdGg6IDQwMHB4O1xufSAqL1xuXG5cbi8qIC5leGFtcGxlLWNvbnRhaW5lciB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XG59XG5cbi5leGFtcGxlLWNvbnRhaW5lciA+ICoge1xuICB3aWR0aDogMTAwJTtcbn0gKi9cblxubWF0LWNhcmQge1xuICBtYXJnaW46IDVweDtcbn0iXX0= */"]
     });
     /*@__PURE__*/
@@ -1663,13 +1691,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         return [{
           type: _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"]
         }, {
-          type: _firebase_service__WEBPACK_IMPORTED_MODULE_3__["FirebaseService"]
+          type: _firebase_service__WEBPACK_IMPORTED_MODULE_5__["FirebaseService"]
         }, {
-          type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"]
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"]
         }, {
           type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"]
         }, {
-          type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"]
         }];
       }, null);
     })();
@@ -1751,7 +1779,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.data.action == "delete");
         }
       },
-      directives: [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogTitle"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogContent"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogActions"], _angular_common__WEBPACK_IMPORTED_MODULE_9__["NgIf"], _angular_material_button__WEBPACK_IMPORTED_MODULE_13__["MatButton"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogClose"]],
+      directives: [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogTitle"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogContent"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogActions"], _angular_common__WEBPACK_IMPORTED_MODULE_11__["NgIf"], _angular_material_button__WEBPACK_IMPORTED_MODULE_15__["MatButton"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogClose"]],
       encapsulation: 2
     });
     /*@__PURE__*/
@@ -2071,8 +2099,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         }
       }, {
         key: "deleteByReader",
-        value: function deleteByReader(reader) {
-          return this.dbr.object('DEMENTIA/studies/' + reader) // return this.dbr.object('studies/' + reader)
+        value: function deleteByReader(route) {
+          return this.dbr.object(route) // return this.dbr.object('studies/' + reader)
           .remove().then(function () {
             return console.log("delete OK");
           }).catch(function (err) {
@@ -3352,7 +3380,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     "./node_modules/@angular/material/__ivy_ngcc__/esm2015/button.js");
 
     var _c0 = function _c0() {
-      return ["/"];
+      return ["/new"];
     };
 
     var _c1 = function _c1() {

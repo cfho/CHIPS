@@ -40,8 +40,8 @@ export class FirebaseService {
 
   }
 
-  deleteByReader(reader){
-    return this.dbr.object('DEMENTIA/studies/' + reader)
+  deleteByReader(route: string){
+    return this.dbr.object(route)
     // return this.dbr.object('studies/' + reader)
       .remove()
       .then(() => console.log("delete OK"))

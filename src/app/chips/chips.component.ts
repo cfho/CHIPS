@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from "@angular/core";
+import { Component, OnInit, Inject, OnDestroy } from "@angular/core";
 import {
   FormBuilder,
   FormControl,
@@ -13,18 +13,19 @@ import {
 
 import { FirebaseService } from "../firebase.service";
 import { ActivatedRoute, Router } from "@angular/router";
-import { throwIfEmpty } from "rxjs/operators";
+import { takeUntil, throwIfEmpty } from "rxjs/operators";
 // import { RouterModule, Routes } from '@angular/router';
 
 import { Output, EventEmitter } from "@angular/core";
+import { Subject } from "rxjs";
 
 @Component({
   selector: "app-chips",
   templateUrl: "./chips.component.html",
   styleUrls: ["./chips.component.css"],
 })
-export class ChipsComponent implements OnInit {
-  // items;
+export class ChipsComponent implements OnInit, OnDestroy {
+  private destroy$ = new Subject();
   checkoutForm;
   totalprice;
   interpreter$;
@@ -71,7 +72,9 @@ export class ChipsComponent implements OnInit {
 
   ngOnInit() {
     // console.log(this.totalprice);
-    this.route.paramMap.subscribe((params) => {
+    this.route.paramMap
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((params) => {
       this.reader = params.get("Id");
       console.log(this.reader);
       if (this.reader) {
@@ -85,34 +88,27 @@ export class ChipsComponent implements OnInit {
     this.interpreter$ = this.afService.getInterpreter();
   }
 
-  openDialogDelete() {
-    const dialogRef = this.dialog.open(ChipsDialog, {
-      data: { reader: this.reader },
-    });
-
-    dialogRef.afterClosed().subscribe((result) => {
-      this.delete();
-      // console.log(`Dialog result: ${result}`);
-    });
-  }
-
   openDialog(action: string) {
     const dialogRef = this.dialog.open(ChipsDialog, {
       data: { action: action },
     });
 
-    dialogRef.afterClosed().subscribe((result) => {
+    dialogRef.afterClosed()
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((result) => {
       console.log(result);
       if (result == "save") {
         this.onSubmit();
       } else if (result == "delete") {
         this.delete();
-      } 
+      }
     });
   }
 
   getStudyByReader(reader) {
-    this.afService.getStudyByReader(reader).subscribe((value) => {
+    this.afService.getStudyByReader(reader)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((value) => {
       if (value) {
         this.data = value;
         this.checkoutForm.setValue({
@@ -195,19 +191,40 @@ export class ChipsComponent implements OnInit {
   }
 
   delete() {
-    // console.log(this.reader)
+    const hxNumber = this.checkoutForm.value.hisnum;
     const oldString = this.reader;
-    const arr = oldString.split('/');
+    const arr = oldString.split("/");
     arr.pop();
-    const pushString = this.checkoutForm.value.accessnum + '_' + this.checkoutForm.value.reader;
+    const pushString =
+      this.checkoutForm.value.accessnum + "_" + this.checkoutForm.value.reader;
     arr.push(pushString);
-    const reader = arr.join('/');
-    const id = String(reader).substring(0, reader.indexOf('/'))
-    console.log(id);
-    this.router.navigate(["study-detail/" + id]);
-    console.log(reader);
-    this.afService.deleteByReader(reader);
+    const reader = arr.join("/");
+
+    this.afService.getMRIbyHx(hxNumber)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((data) => {
+      console.log(data.length);
+      if (data.length === 1) {
+        this.router.navigate(["study-detail/" + hxNumber]);
+        const route = "DEMENTIA/studies/" + hxNumber;
+        console.log(route);
+        this.afService.deleteByReader(route);
+      } else {
+        this.router.navigate(["study-detail/" + hxNumber]);
+        const route = "DEMENTIA/studies/" + reader;
+        console.log(route);
+        this.afService.deleteByReader(route);
+      }
+    });
+
+    // const id = String(reader).substring(0, reader.indexOf('/'))
+    // console.log(id);
   }
+
+  ngOnDestroy() {
+    this.destroy$.next(true);
+    console.log("💥Destroyed");
+}
 }
 
 @Component({
